@@ -7,9 +7,8 @@ def convert(path,templatePath):
         for key in pl:
             if "rgba" in pl[key]:
                 template = template.replace("{%"+key+"%}",tohex(pl[key].replace("rgba","rgb")))
-        f = open(path.replace(".alfredtheme",".xaml"),'w')
-        f.write(template)
-        f.close()
+        with open(path.replace(".alfredtheme",".xaml"),'w') as f:
+            f.write(template)
 
 
 def tohex(string):
